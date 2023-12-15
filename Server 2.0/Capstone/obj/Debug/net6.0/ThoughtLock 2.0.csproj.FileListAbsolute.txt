@@ -1,0 +1,41 @@
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\appsettings.json
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\ThoughtLock 2.0.exe
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\ThoughtLock 2.0.deps.json
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\ThoughtLock 2.0.runtimeconfig.json
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\ThoughtLock 2.0.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\ThoughtLock 2.0.pdb
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.csproj.AssemblyReference.cache
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.AssemblyInfoInputs.cache
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.AssemblyInfo.cs
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.csproj.CoreCompileInputs.cache
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\staticwebassets\msbuild.ThoughtLock 2.0.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\staticwebassets\msbuild.build.ThoughtLock 2.0.props
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ThoughtLock 2.0.props
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ThoughtLock 2.0.props
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\scopedcss\bundle\ThoughtLock 2.0.styles.css
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.csproj.CopyComplete
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\refint\ThoughtLock 2.0.dll
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.pdb
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ThoughtLock 2.0.genruntimeconfig.cache
+C:\Users\Student\source\repos\personal\ThoughtLock\Server 2.0\Capstone\obj\Debug\net6.0\ref\ThoughtLock 2.0.dll

@@ -1,0 +1,2 @@
+Golly, this base population of the database was kind of tedious, 
+but at least it provides a more robust basis going forward with the development of my project
