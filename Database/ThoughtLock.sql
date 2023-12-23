@@ -13,15 +13,22 @@ GO
 USE thoughtlock
 GO
 --TABLES--
-CREATE TABLE Users(
+CREATE TABLE users(
 	user_id int IDENTITY(1001,1) NOT NULL,
 	username varchar(50) NOT NULL,
+	email varchar(400) NOT NULL,
 	password_hash varchar(200) NOT NULL,
 	salt varchar(200) NOT NULL,
 	entry_count int NOT NULL,
 	user_role varchar(350) NOT NULL
 )
 
+CREATE TABLE logins(
+	login_id int IDENTITY(1,1) NOT NULL,
+	user_id int NOT NULL,
+	username varchar(300) NOT NULL, 
+	date_time datetime NOT NULL 
+)
 CREATE TABLE entry(
 	entry_id int IDENTITY(1,1) NOT NULL,
 	user_id int NOT NULL,
@@ -42,7 +49,20 @@ CREATE TABLE subject_entry(
 subject_id int NOT NULL,
 entry_id int NOT NULL
 )
+CREATE TABLE entry_entry(
+entry_id int NOT NULL,
+entry_id_2 int NOT NULL
+)
+CREATE TABLE subject_subject(
+subject_id int NOT NULL,
+subject_id_2 int NOT NULL
+)
 --INSERTS
+INSERT INTO users (username, email, entry_count, password_hash, salt, user_role) VALUES ('user', 'dummy@email.net', 0, 'Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
+INSERT INTO users (username, email, entry_count, password_hash, salt, user_role) VALUES ('admin','smart@email.com', 0,'YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+INSERT INTO users (username, email, entry_count, password_hash, salt, user_role) VALUES ('new user!', 'user@yahoo.com', 0, 'SJwGoscVAqnsELPHPdMhq6tqYEM=', 'I7cqSJ3qfU4=', 'user');
+INSERT INTO users (username, email, entry_count, password_hash, salt, user_role) VALUES ('new admin', 'admin@gmail.com', 0, '7aAwUxYHuUaz2iNz3SjHZHaZq88=', 'ydNeoqlGX9I=', 'admin');
+INSERT INTO users (username, email, entry_count, password_hash, salt, user_role) VALUES ('p', 'p', 0, 'w+SKSUSfuCzVYJvJ3zxYHpxY7L0=', 'zlaET17AUpA=', 'admin');
 INSERT INTO entry (user_id, description, path, date_time) 
 VALUES (
 1001, 
@@ -124,24 +144,39 @@ INSERT INTO subject (subject_name, user_id, description, child_subjects_id, pare
 Useful for miscellaneous and hard to classify thoughts.', 0, 0, 0)
 --CONSTRAINTS--
 --user
-ALTER TABLE [Users] WITH CHECK
+ALTER TABLE [users] WITH CHECK
 ADD CONSTRAINT PK_user PRIMARY KEY (user_id)
-ALTER TABLE [Users] WITH CHECK
+ALTER TABLE [users] WITH CHECK
 ADD	CONSTRAINT UQ_username UNIQUE (username)
+--login
+ALTER TABLE [logins] WITH CHECK
+ADD CONSTRAINT PK_user PRIMARY KEY (login_id)
+ALTER TABLE [logins] WITH CHECK
+ADD	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 --entry
 ALTER TABLE [entry] WITH CHECK
 ADD CONSTRAINT PK_transfer_type PRIMARY KEY (entry_id)
 ALTER TABLE [entry] WITH CHECK
-ADD CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES user_info(user_id)
+ADD CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 --subject
 ALTER TABLE [subject] WITH CHECK
 ADD CONSTRAINT PK_subject_id PRIMARY KEY (subject_id)
 ALTER TABLE [subject] WITH CHECK
-ADD	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES user_info (user_id)
+ADD	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 ALTER TABLE [subject] WITH CHECK
 ADD	CONSTRAINT FK_related_subjects_id FOREIGN KEY (related_subjects_id) REFERENCES subject (subject_id)
 --subject_entry
 ALTER TABLE [subject_entry] WITH CHECK
 ADD CONSTRAINT FK_subject_id FOREIGN KEY (subject_id) REFERENCES subject (subject_id)
+ALTER TABLE [subject_entry] WITH CHECK
+ADD CONSTRAINT FK_entry_id FOREIGN KEY (entry_id) REFERENCES entry (entry_id)
+--subject_subject
+ALTER TABLE [subject_subject] WITH CHECK
+ADD CONSTRAINT FK_subject_id FOREIGN KEY (subject_id) REFERENCES subject (subject_id)
+ALTER TABLE [subject_subject] WITH CHECK
+ADD CONSTRAINT FK_subject_id_2 FOREIGN KEY (subject_id_2) REFERENCES entry (subject_id)
+--entry_entry
+ALTER TABLE [subject_entry] WITH CHECK
+ADD CONSTRAINT FK_entry_id_2 FOREIGN KEY (entry_id_2) REFERENCES subject (entry_id)
 ALTER TABLE [subject_entry] WITH CHECK
 ADD CONSTRAINT FK_entry_id FOREIGN KEY (entry_id) REFERENCES entry (entry_id)

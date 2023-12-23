@@ -1,9 +1,8 @@
 import { createApp } from 'vue'
-import CapstoneApp from './App.vue'
+import ThoughLock from './App.vue'
 import { createStore } from './store'
 import router from './router'
 import axios from 'axios'
-
 /* sets the base url for server API communication with axios */
 axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
@@ -24,7 +23,7 @@ if (currentToken) {
 // Create the Vuex store passing in the stored credentials
 const store = createStore(currentToken, currentUser);
 
-const app = createApp(CapstoneApp);
+const app = createApp(ThoughLock);
 app.use(store);
 app.use(router);
 app.mount('#app');

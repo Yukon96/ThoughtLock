@@ -97,7 +97,7 @@ namespace ThoughtLock.Controllers
             User newUser;
             try
             {
-                newUser = userDao.CreateUser(userParam.Username, userParam.Password, userParam.Role);
+                newUser = userDao.CreateUser(userParam.Username, userParam.Password, userParam.Email, userParam.Role);
             }
             catch (DaoException)
             {

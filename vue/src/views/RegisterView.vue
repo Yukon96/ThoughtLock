@@ -5,9 +5,17 @@
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <div class="form-input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" v-model="user.username" required autofocus />
+        </div>
+      <div class ="form-input-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" v-model="user.email" required />
+      </div>
+      <div class ="form-input-group">
+        <label for="organization">Organization/Company Name</label>
+        <input type="text" id="organization" v-model="user.organizationName" required />
       </div>
       <div class="form-input-group">
         <label for="password">Password</label>
@@ -31,6 +39,8 @@ export default {
     return {
       user: {
         username: '',
+        email: '',
+        organizationName: '',
         password: '',
         confirmPassword: '',
         role: 'user',
@@ -57,8 +67,15 @@ export default {
           })
           .catch((error) => {
             const response = error.response;
+            console.log(response.data.message)
             this.registrationErrors = true;
-            if (response.status === 400) {
+            if (response.data.message === "Username already taken. Please choose a different username.") {
+              this.registrationErrorMsg = response.data.message;
+            }
+            if (response.data.message === "Email already taken. Please choose a different Email.") {
+              this.registrationErrorMsg = response.data.message;
+            }
+            if (response.submit === 400) {
               this.registrationErrorMsg = 'Bad Request: Validation Errors';
             }
           });

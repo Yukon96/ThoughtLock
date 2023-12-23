@@ -1,24 +1,25 @@
 <template>
   <div id="login">
-    <form v-on:submit.prevent="login">
-      <h1 >Please Sign In</h1>
-      <div role="alert" v-if="invalidCredentials">
+    <form v-on:submit.prevent="login" id="login-form">
+      <h1 id="login-prompt">Please Sign In</h1>
+      <div id="login-alert-invalid" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
-      <div role="alert" v-if="this.$route.query.registration">
+      <div id="login-alert-success" role="alert" v-if="this.$route.query.registration">
         Thank you for registering, please sign in.
       </div>
-      <div class="form-input-group">
-        <label for="username">Username</label>
+      <div class="form-input-group" id="login-username">
+        <label id="username-label" for="username">Username</label>
         <input type="text" id="username" v-model="user.username" required autofocus />
       </div>
-      <div class="form-input-group">
-        <label for="password">Password</label>
+      <div class="form-input-group" id="login-password">
+        <label id="password-label" for="password">Password</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
-      <button type="submit">Sign in</button>
-      <p>
-      <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
+      <button type="submit" id="login-submit">Sign in</button>
+      <p id="login-register">
+        <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link>
+      </p>
     </form>
   </div>
 </template>
@@ -39,6 +40,7 @@ export default {
   },
   methods: {
     login() {
+      console.log("login");
       authService
         .login(this.user)
         .then(response => {
@@ -47,9 +49,15 @@ export default {
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
+          if (response.status == 202) {
+            this.$store.commit("SET_AUTH_TOKEN", response.data.token);
+            this.$store.commit("SET_USER", response.data.user);
+            this.$router.push("/user/changepassword");
+          }
         })
         .catch(error => {
           const response = error.response;
+          console.log(response)
 
           if (response.status === 401) {
             this.invalidCredentials = true;

@@ -22,7 +22,7 @@ namespace ThoughtLock.DAO
         {
             IList<User> users = new List<User>();
 
-            string sql = "SELECT user_id, username, password_hash, salt, user_role FROM users";
+            string sql = "SELECT user_id, username, email, password_hash, salt, user_role FROM users";
 
             try
             {
@@ -52,7 +52,7 @@ namespace ThoughtLock.DAO
         {
             User user = null;
 
-            string sql = "SELECT user_id, username, password_hash, salt, user_role FROM users WHERE user_id = @user_id";
+            string sql = "SELECT user_id, username, email, password_hash, salt, user_role FROM users WHERE user_id = @user_id";
 
             try
             {
@@ -82,7 +82,7 @@ namespace ThoughtLock.DAO
         {
             User user = null;
 
-            string sql = "SELECT user_id, username, password_hash, salt, user_role FROM users WHERE username = @username";
+            string sql = "SELECT user_id, email, username, password_hash, salt, user_role FROM users WHERE username = @username";
 
             try
             {
@@ -108,16 +108,16 @@ namespace ThoughtLock.DAO
             return user;
         }
 
-        public User CreateUser(string username, string password, string role)
+        public User CreateUser(string username, string password, string email, string role)
         {
             User newUser = null;
 
             IPasswordHasher passwordHasher = new PasswordHasher();
             PasswordHash hash = passwordHasher.ComputeHash(password);
 
-            string sql = "INSERT INTO users (username, password_hash, salt, user_role, entry_count) " +
+            string sql = "INSERT INTO users (username, email, password_hash, salt, user_role, entry_count) " +
                          "OUTPUT INSERTED.user_id " +
-                         "VALUES (@username, @password_hash, @salt, @user_role, @entry_count)";
+                         "VALUES (@username, @password_hash, @email, @salt, @user_role, @entry_count)";
 
             int newUserId = 0;
             try
@@ -127,6 +127,7 @@ namespace ThoughtLock.DAO
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password_hash", hash.Password);
                     cmd.Parameters.AddWithValue("@salt", hash.Salt);
@@ -148,6 +149,7 @@ namespace ThoughtLock.DAO
         private User MapRowToUser(SqlDataReader reader)
         {
             User user = new User();
+            user.Email = Convert.ToString(reader["email"]);
             user.UserId = Convert.ToInt32(reader["user_id"]);
             user.Username = Convert.ToString(reader["username"]);
             user.PasswordHash = Convert.ToString(reader["password_hash"]);
